@@ -19,7 +19,10 @@ var LIFX = (function() {
             })
               .then(function(res) {
                 token = inputVal;
-                Cookies.set('LIFX_TOKEN', token);
+                Cookies.set('LIFX_TOKEN', token, {
+                  path: '',
+                  expires: 60
+                });
                 $('#auth-token-error').hide();
                 $('#auth-token-submit').off('click');
                 $('#auth-modal').foundation('close');
@@ -41,7 +44,9 @@ var LIFX = (function() {
       return request('PUT', '/lights/' + (selector || 'all') + '/state', params || {})
     },
     logout: function() {
-      Cookies.remove('LIFX_TOKEN');
+      Cookies.remove('LIFX_TOKEN', {
+        path: ''
+      });
       location.reload();
     }
   };
