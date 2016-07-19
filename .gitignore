@@ -35,3 +35,10 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Travis deploy keys
+deploy_key
+deploy_key.pub
+
+# Build folder
+build/*

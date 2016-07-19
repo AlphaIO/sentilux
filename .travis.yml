@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- stable
+
+script: bash ./deploy.sh
+env:
+  global:
+  - ENCRYPTION_LABEL: "cba9d039e322"
+  - COMMIT_AUTHOR_EMAIL: "jesse+travis@yottaforce.co"

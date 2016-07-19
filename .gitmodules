@@ -1,0 +1,3 @@
+[submodule "src/js/lib/lifx-client"]
+	path = src/js/lib/lifx-client
+	url = git@github.com:mdottavio/ya-lifx.git
