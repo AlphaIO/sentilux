@@ -12,7 +12,7 @@ It uses the [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/We
 
 After each chunk of speech is recognized and scored, the score is pushed into a buffer. The mean of the buffer is calculated and used to evaluate a "profile" function that determines how to change the lighting. There are two profiles currently available, and more can be added easily:
 
-**Moodlight**: Adjusts color between red and green based on score.
+**Moodlight**: Adjusts color between red and green based on score.  
 **Calming light**: Changes from white to a calming light blue when the average score drops below 0.4.
 
 Finally, the color calculated by the profile function is sent to the LIFX [HTTP API](https://api.developer.lifx.com/), and your lights crossfade to the new color!
