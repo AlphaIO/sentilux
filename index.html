@@ -1,0 +1,86 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SentiLux</title>
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/app.css"> </head>
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text">SentiLux</li>
+          <li><button id="toggle-listening" type="button" class="disabled success button">Start Listening</button></li>
+          <li id="stats-list" style="display: none;">
+            <ul>
+              <li>Overall sentiment: <b id="overall-sentiment" class="label">(none)</b></li>
+              <li>Buffer length: <b id="buffer-size">0</b></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><button class="button" type="button" data-toggle="settings-dropdown">Settings</button></li>
+          <li><a id="logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="dropdown-pane" id="settings-dropdown" data-dropdown data-hover="true" data-hover-pane="true"> <label>Profile
+        <select id="profile-select">
+          <option value="moodlight" selected>Moodlight</option>
+          <option value="calming">Calming light</option>
+        </select>
+      </label>
+      <dl> <dt>Moodlight</dt>
+        <dd>Adjusts color between red and green based on the average score of the buffer.</dd> <dt>Calming light</dt>
+        <dd>Changes from white to a calming light blue when the average score of the buffer drops below 0.4.</dd>
+      </dl>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        <h3>Current speech transcript</h3>
+        <div id="interim-transcript" class="transcript" type="text"></div>
+      </div>
+      <div class="small-6 columns">
+        <h3>Most recent result</h3>
+        <div id="last-result" style="display: none;">
+          <div id="last-transcript" class="transcript small" type="text"></div>
+          <div id="last-score-container" style="display: none;">
+            <h5>Average sentiment</h5>
+            <div id="last-score" class="progress" role="progressbar" tabindex="0"> <span class="progress-meter" style="width: 50%">
+                <p class="progress-meter-text">0.5</p>
+              </span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer> <a href="https://github.com/YottaInc/sentilux">Fork me on GitHub!</a> </footer>
+    <div class="reveal" id="auth-modal" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+      <h1>LIFX Authentication</h1>
+      <div id="auth-token-error" class="alert callout" style="display: none;">
+        <!-- TODO: make this shake whenever invoked -->
+        <p></p>
+      </div>
+      <p class="lead">Please generate an access token in your LIFX account settings <a href="https://cloud.lifx.com/settings">here</a>, and paste it in the box below.</p>
+      <p>(You should also save it somewhere, since you won't be able to view it after you close your account settings.)</p>
+      <div class="input-group"> <input id="auth-token-input" class="input-group-field" type="text" placeholder="01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b">
+        <div class="input-group-button"> <input id="auth-token-submit" type="submit" class="button" value="Submit"> </div>
+      </div>
+    </div>
+    <div class="reveal" id="error-modal" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">
+      <h1></h1>
+      <p class="lead"></p>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+
+</html>
