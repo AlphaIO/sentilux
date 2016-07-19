@@ -1,4 +1,4 @@
-# SentiLux
+# SentiLux [![Build Status](https://travis-ci.org/YottaInc/sentilux.svg?branch=master)](https://travis-ci.org/YottaInc/sentilux)
 
 SentiLux is a static web application that adjusts your [LIFX](http://www.lifx.com/) connected lightbulbs to reflect the emotional sentiment of the room, measured through speech.
 
