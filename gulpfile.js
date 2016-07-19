@@ -45,7 +45,7 @@ gulp.task('vendor-css', function() {
 });
 
 gulp.task('copy', function() {
-  gulp.src(['./src/js/vendor/*', './src/css/vendor/*','./src/wordlists/*.json'])
+  gulp.src(['./src/js/vendor.js', './src/css/vendor.css','./src/wordlists/*.json'])
     .pipe(copy('./build/', {
       prefix: 1
     }))
