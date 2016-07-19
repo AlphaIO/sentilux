@@ -25,3 +25,4 @@ Finally, the color calculated by the profile function is sent to the LIFX [HTTP 
   - [ ] Add ability to customize profiles, choosing the colors each profile uses
 - [ ] Investigate alternative wordlists/sentiment analysis algorithms
 - [ ] Add more profiles!
+- [ ] Add dedicated profile(s) for LIFX White bulbs
