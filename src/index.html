@@ -65,6 +65,13 @@
         </div>
       </div>
     </div>
+    
+    <div id="tip-callout" class="callout primary" style="display: none;" data-closable>
+      <p>Click "Start Listening" and try saying something like "I am having a good day" or "I am not happy right now"</p>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
     <footer>
       <a href="https://github.com/YottaInc/sentilux">Fork me on GitHub!</a>
@@ -84,6 +91,8 @@
           <input id="auth-token-submit" type="submit" class="button" value="Submit">
         </div>
       </div>
+      <span>Want to try out SentiLux but don't have LIFX lights?</span>
+      <button id="auth-bypass" type="button" class="small button">Click here</button>
     </div>
     
     <div class="reveal" id="error-modal" data-reveal data-animation-in="fade-in" data-animation-out="fade-out">

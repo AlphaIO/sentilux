@@ -1,5 +1,6 @@
 var LIFX = (function() {
   var token = Cookies.get('LIFX_TOKEN');
+  var live = false;
   var BASEURL = 'https://api.lifx.com/v1';
 
   var api = {
@@ -27,6 +28,7 @@ var LIFX = (function() {
                 $('#auth-token-submit').off('click');
                 $('#auth-modal').foundation('close');
 
+                live = true;
                 cb();
               })
               .then(undefined, function(err) {
@@ -37,11 +39,22 @@ var LIFX = (function() {
             $('#auth-token-error p').text('Please enter a token.');
             $('#auth-token-error').show();
           }
+        });
+        $('#auth-bypass').click(function() {
+          $('#auth-token-error').hide();
+          $('#auth-token-submit').off('click');
+          $('#auth-modal').foundation('close');
+
+          live = false;
+          cb();
         })
       }
     },
     setState: function(selector, params) {
       return request('PUT', '/lights/' + (selector || 'all') + '/state', params || {})
+    },
+    live: function() {
+      return live
     },
     logout: function() {
       Cookies.remove('LIFX_TOKEN', {

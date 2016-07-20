@@ -8,21 +8,23 @@ Sentiment.init({
       .text((mean * 10).toString().slice(0, 4));
     $('#buffer-size').text(Sentiment.bufferSize().toString());
     $('#stats-list').show();
-
-    LIFX.setState('all', {
-      power: 'on',
-      color: color.light,
-      duration: 10
-    })
-      .then(function(res) {
-        console.log(res);
+    
+    if (LIFX.live()) {
+      LIFX.setState('all', {
+        power: 'on',
+        color: color.light,
+        duration: 10
       })
-      .then(undefined, function(err) {
-        console.error(err);
-        Util.showError({
-          message: err.error || 'An unknown error occurred requesting the LIFX API.'
+        .then(function(res) {
+          console.log(res);
+        })
+        .then(undefined, function(err) {
+          console.error(err);
+          Util.showError({
+            message: err.error || 'An unknown error occurred requesting the LIFX API.'
+          });
         });
-      });
+    }
   }
 });
 
@@ -102,6 +104,11 @@ LIFX.init(function() {
           name: this.value
         }
       })
-    })
+    });
+    
+    if (!LIFX.live()) {
+      // if we're not running with live light the user is probably just testing out the app, so we display an instructional message
+      $('#tip-callout').show();
+    }
   }
 });
