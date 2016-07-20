@@ -107,7 +107,7 @@ LIFX.init(function() {
     });
     
     if (!LIFX.live()) {
-      // if we're not running with live light the user is probably just testing out the app, so we display an instructional message
+      // if we're not running with live lights the user is probably just testing out the app, so we display an instructional message
       $('#tip-callout').show();
     }
   }

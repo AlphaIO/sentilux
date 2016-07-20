@@ -1,6 +1,6 @@
 var LIFX = (function() {
   var token = Cookies.get('LIFX_TOKEN');
-  var live = false;
+  var live = true;
   var BASEURL = 'https://api.lifx.com/v1';
 
   var api = {
@@ -27,8 +27,6 @@ var LIFX = (function() {
                 $('#auth-token-error').hide();
                 $('#auth-token-submit').off('click');
                 $('#auth-modal').foundation('close');
-
-                live = true;
                 cb();
               })
               .then(undefined, function(err) {
