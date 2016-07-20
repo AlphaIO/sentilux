@@ -22,6 +22,10 @@
     line-height: 15px;
 }
 
+#tip-callout {
+    margin: 0% 5%;
+}
+
 footer {
     margin-top: 30px;
     text-align: center;
